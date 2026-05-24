@@ -109,6 +109,17 @@ export class BookingsService extends BaseApiService {
     });
   }
 
+  async verifyBookingIdInList(
+    response: TypedResponse<Array<{ bookingid: number }>>,
+    expectedId: number,
+  ): Promise<void> {
+    await this.step(`verify booking id ${expectedId} present in list`, async () => {
+      await this.verifyStatus(response, 200);
+      const ids = response.body.map((b) => b.bookingid);
+      expect(ids, `Expected booking id ${expectedId} in list`).toContain(expectedId);
+    });
+  }
+
   async verifyDeleted<T>(response: TypedResponse<T>): Promise<void> {
     await this.step('verify delete success', async () => {
       // Restful-Booker returns 201 "Created" for DELETE per their docs (quirky but documented)

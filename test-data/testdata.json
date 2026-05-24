@@ -1,5 +1,15 @@
 {
   "web_users": [],
   "web_checkout": [],
-  "api_bookings": []
+  "api_bookings": [
+    {
+      "TC_ID": "TC_API_BOOK_001",
+      "firstname": "John",
+      "lastname": "Doe",
+      "totalprice": 250,
+      "depositpaid": true,
+      "bookingdates": { "checkin": "2026-06-01", "checkout": "2026-06-05" },
+      "additionalneeds": "Breakfast"
+    }
+  ]
 }

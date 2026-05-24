@@ -11,7 +11,7 @@ interface AuthRequest {
   password: string;
 }
 
-interface AuthOkResponse {
+export interface AuthOkResponse {
   token: string;
 }
 

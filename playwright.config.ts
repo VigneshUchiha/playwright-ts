@@ -33,7 +33,15 @@ export default defineConfig({
     {
       name: 'unit',
       testMatch: 'tests/unit/**/*.spec.ts',
+      testIgnore: ['tests/api/**', 'tests/web/**', 'tests/mobile/**'],
       use: {},
+    },
+    {
+      name: 'api',
+      testMatch: 'tests/api/**/*.spec.ts',
+      use: {
+        baseURL: ENV.API_BASE_URL,
+      },
     },
   ],
 
