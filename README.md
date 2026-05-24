@@ -2,7 +2,7 @@
 
 > Playwright + TypeScript test automation framework — Web (SauceDemo) + API (Restful-Booker) — built with Page Object Model, custom action wrappers, fixtures, multi-environment config, and Allure reporting.
 
-[![CI](https://github.com/<your-username>/playwright-ts/actions/workflows/ci.yml/badge.svg)](https://github.com/<your-username>/playwright-ts/actions/workflows/ci.yml)
+[![CI](https://github.com/VigneshUchiha/playwright-ts/actions/workflows/ci.yml/badge.svg)](https://github.com/VigneshUchiha/playwright-ts/actions/workflows/ci.yml)
 
 ## Table of Contents
 
@@ -33,7 +33,7 @@ A portfolio-grade Playwright + TypeScript framework that demonstrates senior-lev
 ## Quick start
 
 ```bash
-git clone https://github.com/<your-username>/playwright-ts.git
+git clone https://github.com/VigneshUchiha/playwright-ts.git
 cd playwright-ts
 npm install
 npx playwright install --with-deps chromium firefox webkit
