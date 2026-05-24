@@ -68,11 +68,7 @@ export class BookingsService extends BaseApiService {
     );
   }
 
-  async updateBooking(
-    id: number,
-    payload: Booking,
-    token: string,
-  ): Promise<TypedResponse<Booking>> {
+  async updateBooking(id: number, payload: Booking, token: string): Promise<TypedResponse<Booking>> {
     return this.step(`update booking ${id}`, async () =>
       this.apiClient.withToken(token).put<Booking>(API_ROUTES.BOOKING_BY_ID(id), payload),
     );
@@ -110,17 +106,6 @@ export class BookingsService extends BaseApiService {
     await this.step('verify list schema', async () => {
       await this.verifyStatus(response, 200);
       this.validator.validate('booking-list', response.body);
-    });
-  }
-
-  async verifyBookingIdInList(
-    response: TypedResponse<Array<{ bookingid: number }>>,
-    expectedId: number,
-  ): Promise<void> {
-    await this.step(`verify booking id ${expectedId} present in list`, async () => {
-      await this.verifyStatus(response, 200);
-      const ids = response.body.map((b) => b.bookingid);
-      expect(ids, `Expected booking id ${expectedId} in list`).toContain(expectedId);
     });
   }
 

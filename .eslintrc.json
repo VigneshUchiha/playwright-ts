@@ -25,7 +25,8 @@
       "extends": ["plugin:playwright/recommended"],
       "rules": {
         "playwright/no-wait-for-timeout": "error",
-        "playwright/no-networkidle": "error"
+        "playwright/no-networkidle": "error",
+        "playwright/expect-expect": ["warn", { "assertFunctionNames": ["verifyTokenIssued", "verifyBadCredentials", "verifyPingOk", "verifyBookingId", "verifyBookingMatches", "verifyBookingListSchema", "verifyDeleted"] }]
       }
     },
     {

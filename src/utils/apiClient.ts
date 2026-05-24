@@ -68,10 +68,7 @@ export class ApiClient {
   ): Promise<TypedResponse<T>> {
     const url = this.baseURL + pathname;
     return test.step(`${method} ${pathname}`, async () => {
-      this.logger.info(
-        `${method} ${url}`,
-        body !== undefined ? { body: redactBody(body) } : undefined,
-      );
+      this.logger.info(`${method} ${url}`, body !== undefined ? { body: redactBody(body) } : undefined);
       const headers: Record<string, string> = {
         Accept: 'application/json',
         'Content-Type': 'application/json',
