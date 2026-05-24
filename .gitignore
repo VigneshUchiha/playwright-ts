@@ -11,3 +11,4 @@ config/secrets/secrets.json
 .idea/
 .vscode/settings.json
 coverage/
+.playwright-mcp/

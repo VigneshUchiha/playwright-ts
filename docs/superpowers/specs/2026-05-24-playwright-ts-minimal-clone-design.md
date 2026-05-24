@@ -8,7 +8,7 @@
 
 Build a public, resume-grade Playwright + TypeScript test automation framework that demonstrates senior-level architectural patterns (Page Object Model, custom action wrappers, fixture-injected page/service objects, multi-environment config, Allure tagging, JSON Schema validation) against widely-recognized public test targets.
 
-The framework is being written **from scratch** as a clean-origin codebase (Approach A — no copy-paste from the source company framework at `/Users/vigneshponna/Desktop/Bela_Projects/playwright-ts/playwright-ts/`). Architectural patterns themselves are industry standard and not company IP; the specific code is.
+The framework is being written **from scratch** as a clean-origin codebase (Approach A — no copy-paste from the source company framework at `<source-company-framework>`). Architectural patterns themselves are industry standard and not company IP; the specific code is.
 
 ## 2. Scope
 
