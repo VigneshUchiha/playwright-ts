@@ -1,0 +1,9 @@
+{
+  "baseURL": "https://www.saucedemo.com",
+  "apiBaseURL": "https://restful-booker.herokuapp.com",
+  "timeouts": {
+    "default": 10000,
+    "action": 8000,
+    "navigation": 15000
+  }
+}

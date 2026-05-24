@@ -1,0 +1,13 @@
+node_modules/
+allure-results/
+allure-report/
+test-results/
+playwright-report/
+config/secrets/secrets.json
+.env
+*.log
+.DS_Store
+/dist/
+.idea/
+.vscode/settings.json
+coverage/

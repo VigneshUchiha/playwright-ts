@@ -1,0 +1,40 @@
+{
+  "web_users": [
+    {
+      "TC_ID": "TC_WEB_AUTH_001",
+      "user": "standard_user",
+      "password": "secret_sauce"
+    },
+    {
+      "TC_ID": "TC_WEB_AUTH_002",
+      "user": "locked_out_user",
+      "password": "secret_sauce",
+      "expectedError": "Epic sadface: Sorry, this user has been locked out."
+    },
+    {
+      "TC_ID": "TC_WEB_AUTH_003",
+      "user": "standard_user",
+      "password": "wrong_password",
+      "expectedError": "Epic sadface: Username and password do not match any user in this service"
+    }
+  ],
+  "web_checkout": [
+    {
+      "TC_ID": "TC_WEB_E2E_001",
+      "firstName": "John",
+      "lastName": "Doe",
+      "postalCode": "12345"
+    }
+  ],
+  "api_bookings": [
+    {
+      "TC_ID": "TC_API_BOOK_001",
+      "firstname": "John",
+      "lastname": "Doe",
+      "totalprice": 250,
+      "depositpaid": true,
+      "bookingdates": { "checkin": "2026-06-01", "checkout": "2026-06-05" },
+      "additionalneeds": "Breakfast"
+    }
+  ]
+}

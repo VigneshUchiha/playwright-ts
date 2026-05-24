@@ -1,0 +1,61 @@
+{
+  "loginPage": {
+    "usernameInput": "locator('[data-test=\"username\"]')",
+    "passwordInput": "locator('[data-test=\"password\"]')",
+    "loginButton": "locator('[data-test=\"login-button\"]')",
+    "errorMessageContainer": "locator('[data-test=\"error\"]')",
+    "loginLogo": "getByText('Swag Labs')"
+  },
+  "inventoryPage": {
+    "inventoryContainer": "locator('[data-test=\"inventory-container\"]')",
+    "appLogo": "getByText('Swag Labs')",
+    "hamburgerButton": "getByRole('button', { name: 'Open Menu' })",
+    "cartLink": "locator('[data-test=\"shopping-cart-link\"]')",
+    "cartBadge": "locator('.shopping_cart_badge')",
+    "sortDropdown": "locator('[data-test=\"product-sort-container\"]')",
+    "productCard": "locator('.inventory_item')",
+    "addToCartBackpack": "locator('[data-test=\"add-to-cart-sauce-labs-backpack\"]')",
+    "removeBackpack": "locator('[data-test=\"remove-sauce-labs-backpack\"]')",
+    "productNameBackpack": "locator('[data-test=\"item-4-title-link\"]')",
+    "logoutLink": "locator('[data-test=\"logout-sidebar-link\"]')"
+  },
+  "cartPage": {
+    "cartContainer": "locator('#cart_contents_container')",
+    "cartItemBackpack": "locator('[data-test=\"inventory-item\"]')",
+    "removeBackpackFromCart": "locator('[data-test=\"remove-sauce-labs-backpack\"]')",
+    "checkoutButton": "locator('[data-test=\"checkout\"]')",
+    "continueShoppingButton": "locator('[data-test=\"continue-shopping\"]')"
+  },
+  "checkoutStepOne": {
+    "checkoutInfoContainer": "locator('#checkout_info_container')",
+    "firstNameInput": "locator('[data-test=\"firstName\"]')",
+    "lastNameInput": "locator('[data-test=\"lastName\"]')",
+    "postalCodeInput": "locator('[data-test=\"postalCode\"]')",
+    "continueButton": "locator('[data-test=\"continue\"]')",
+    "cancelButton": "locator('[data-test=\"cancel\"]')",
+    "errorMessageContainer": "locator('[data-test=\"error\"]')"
+  },
+  "checkoutStepTwo": {
+    "checkoutSummaryContainer": "locator('#checkout_summary_container')",
+    "itemSubtotalLabel": "locator('[data-test=\"subtotal-label\"]')",
+    "taxLabel": "locator('[data-test=\"tax-label\"]')",
+    "totalLabel": "locator('[data-test=\"total-label\"]')",
+    "finishButton": "locator('[data-test=\"finish\"]')",
+    "cancelButton": "locator('[data-test=\"cancel\"]')"
+  },
+  "checkoutComplete": {
+    "completeContainer": "locator('#checkout_complete_container')",
+    "completeHeader": "locator('[data-test=\"complete-header\"]')",
+    "completeText": "locator('[data-test=\"complete-text\"]')",
+    "ponyExpressImage": "locator('[data-test=\"pony-express\"]')",
+    "backHomeButton": "locator('[data-test=\"back-to-products\"]')"
+  },
+  "_notes": {
+    "loginLogo_appLogo": "Both the login page's 'Swag Labs' title and the inventory header logo are rendered as plain text spans with no test id or unique class, so browser_generate_locator returned getByText('Swag Labs') for both. This text appears on every authenticated page header and the login page, so it is a weak/non-unique selector; consider scoping by parent (e.g. .login_logo or .app_logo class) in page objects.",
+    "cartLink_vs_cartBadge": "The data-test='shopping-cart-link' attribute is on the cart-icon wrapper that also contains the badge; the badge itself only has the .shopping_cart_badge class (no data-test).",
+    "productNameBackpack": "MCP generated locator('[data-test=\"item-4-title-link\"]') — note this uses the product's internal id (4 = Backpack) which is stable across the demo. Generic text-based locator getByRole('link', { name: 'Sauce Labs Backpack' }) is an alternative but resolves to two links per card (image + title) and is non-unique without .first().",
+    "cancelButton_step1_step2": "Both checkout step-one and step-two Cancel buttons share data-test='cancel'; they are scoped by URL/page in the tests.",
+    "removeBackpack_inventory_vs_cart": "Same locator [data-test='remove-sauce-labs-backpack'] is used on both inventory and cart pages — each page only renders one instance.",
+    "inventoryContainer_ambiguity": "SauceDemo renders TWO elements with id='inventory_container' — an outer wrapper and inner content div carrying [data-test='inventory-container']. Always use the data-test selector to avoid Playwright strict-mode rejection."
+  }
+}

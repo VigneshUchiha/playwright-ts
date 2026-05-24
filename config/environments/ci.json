@@ -1,0 +1,6 @@
+{
+  "timeouts": {
+    "action": 15000,
+    "navigation": 30000
+  }
+}
