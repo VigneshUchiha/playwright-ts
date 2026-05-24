@@ -3,9 +3,7 @@ import { BasePage } from './base.page';
 
 export class InventoryPage extends BasePage {
   private get container(): Locator {
-    // Use data-test to avoid strict-mode ambiguity: SauceDemo renders two
-    // nested divs both carrying id="inventory_container".
-    return this.page.locator('[data-test="inventory-container"]');
+    return this.page.locator('#inventory_container');
   }
 
   private get appLogo(): Locator {

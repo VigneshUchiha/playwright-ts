@@ -33,6 +33,10 @@ export class CheckoutInfoPage extends BasePage {
     return this.container.locator('[data-test="cancel"]');
   }
 
+  private get errorMessage(): Locator {
+    return this.page.locator('[data-test="error"]');
+  }
+
   get pageIdentifier(): Locator {
     return this.container;
   }
@@ -59,5 +63,12 @@ export class CheckoutInfoPage extends BasePage {
 
   async verifyOnInfo(): Promise<void> {
     await this.verifyOnPage();
+  }
+
+  async verifyValidationError(expected: string): Promise<void> {
+    await this.step('Verify validation error', async () => {
+      await this.ui.expectVisible(this.errorMessage, 'Validation error');
+      await this.ui.expectContainsText(this.errorMessage, expected, 'Error text');
+    });
   }
 }

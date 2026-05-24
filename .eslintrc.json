@@ -26,7 +26,7 @@
       "rules": {
         "playwright/no-wait-for-timeout": "error",
         "playwright/no-networkidle": "error",
-        "playwright/expect-expect": ["warn", { "assertFunctionNames": ["verifyTokenIssued", "verifyBadCredentials", "verifyPingOk", "verifyBookingId", "verifyBookingMatches", "verifyBookingListSchema", "verifyBookingIdInList", "verifyDeleted"] }]
+        "playwright/expect-expect": ["warn", { "assertFunctionNames": ["verifyTokenIssued", "verifyBadCredentials", "verifyPingOk", "verifyBookingId", "verifyBookingMatches", "verifyBookingListSchema", "verifyBookingIdInList", "verifyDeleted", "verifyOnLogin", "verifyLoginError", "verifyOnInventory", "verifyCartBadge", "verifyOnCart", "verifyItem", "verifyOnInfo", "verifyValidationError", "verifyOnOverview", "verifyOrderComplete", "verifyOnPage"] }]
       }
     },
     {

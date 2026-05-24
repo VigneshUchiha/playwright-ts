@@ -1,5 +1,13 @@
 import type { ApiClient } from '@/utils/apiClient';
 import type { HealthService, AuthService, BookingsService } from '@/services/api';
+import type {
+  LoginPage,
+  InventoryPage,
+  CartPage,
+  CheckoutInfoPage,
+  CheckoutOverviewPage,
+  CheckoutCompletePage,
+} from '@/pages/web';
 
 export interface ApiFixtures {
   apiClient: ApiClient;
@@ -9,6 +17,10 @@ export interface ApiFixtures {
 }
 
 export interface PageFixtures {
-  // populated in Slice 4 (web layer)
-  __reserved?: never;
+  loginPage: LoginPage;
+  inventoryPage: InventoryPage;
+  cartPage: CartPage;
+  checkoutInfoPage: CheckoutInfoPage;
+  checkoutOverviewPage: CheckoutOverviewPage;
+  checkoutCompletePage: CheckoutCompletePage;
 }
