@@ -1,5 +1,7 @@
-import { defineConfig, devices } from '@playwright/test';
-import { ENV } from '@config/env.config';
+import { defineConfig } from '@playwright/test';
+import { ENV, ACTIVE_ENV } from '@config/env.config';
+
+process.stdout.write(`[playwright-ts] Running with environment: ${ACTIVE_ENV}\n`);
 
 export default defineConfig({
   testDir: './tests',
@@ -14,7 +16,10 @@ export default defineConfig({
 
   globalSetup: require.resolve('./src/utils/allureSetup.ts'),
 
-  reporter: [['list'], ['allure-playwright', { detail: false, suiteTitle: true }]],
+  reporter: [
+    ['list'],
+    ['allure-playwright', { detail: false, suiteTitle: true }],
+  ],
 
   use: {
     actionTimeout: ENV.ACTION_TIMEOUT,
@@ -28,46 +33,7 @@ export default defineConfig({
     {
       name: 'unit',
       testMatch: 'tests/unit/**/*.spec.ts',
-      testIgnore: ['tests/api/**', 'tests/web/**', 'tests/mobile/**'],
       use: {},
-    },
-    {
-      name: 'api',
-      testMatch: 'tests/api/**/*.spec.ts',
-      use: {
-        baseURL: ENV.API_BASE_URL,
-      },
-    },
-    {
-      name: 'chromium',
-      testMatch: 'tests/web/**/*.spec.ts',
-      testIgnore: ['tests/api/**', 'tests/unit/**', 'tests/mobile/**'],
-      use: {
-        ...devices['Desktop Chrome'],
-        baseURL: ENV.BASE_URL,
-        headless: true,
-        viewport: { width: 1440, height: 900 },
-      },
-    },
-    {
-      name: 'firefox',
-      testMatch: 'tests/web/**/*.spec.ts',
-      testIgnore: ['tests/api/**', 'tests/unit/**', 'tests/mobile/**'],
-      use: {
-        ...devices['Desktop Firefox'],
-        baseURL: ENV.BASE_URL,
-        headless: true,
-      },
-    },
-    {
-      name: 'webkit',
-      testMatch: 'tests/web/**/*.spec.ts',
-      testIgnore: ['tests/api/**', 'tests/unit/**', 'tests/mobile/**'],
-      use: {
-        ...devices['Desktop Safari'],
-        baseURL: ENV.BASE_URL,
-        headless: true,
-      },
     },
   ],
 

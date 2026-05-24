@@ -10,5 +10,3 @@ export {
 } from './testDataUtils';
 export { SchemaValidator } from './schemaValidator';
 export { setTestMetadata, Severity, type TestMetadata } from './allureUtils';
-export { ApiClient, type TypedResponse, type ReqOpts } from './apiClient';
-export { UIActions } from './uiActions';

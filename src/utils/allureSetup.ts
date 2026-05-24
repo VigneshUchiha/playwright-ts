@@ -7,8 +7,6 @@ function sanitizeValue(value: string): string {
 }
 
 async function globalSetup(): Promise<void> {
-  process.stdout.write(`[playwright-ts] Running with environment: ${ACTIVE_ENV}\n`);
-
   const resultsDir = path.resolve(process.cwd(), 'allure-results');
   fs.mkdirSync(resultsDir, { recursive: true });
 
@@ -38,11 +36,7 @@ async function globalSetup(): Promise<void> {
     path.join(resultsDir, 'categories.json'),
     JSON.stringify(
       [
-        {
-          name: 'Validation errors',
-          matchedStatuses: ['failed'],
-          messageRegex: '.*ValidationError.*',
-        },
+        { name: 'Validation errors', matchedStatuses: ['failed'], messageRegex: '.*ValidationError.*' },
         { name: 'API errors', matchedStatuses: ['failed'], messageRegex: '.*ApiError.*' },
         { name: 'Timeouts', matchedStatuses: ['failed'], messageRegex: '.*Timeout.*' },
       ],
