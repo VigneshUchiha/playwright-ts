@@ -1,10 +1,5 @@
 import { test, expect } from '@playwright/test';
-import {
-  uniqueName,
-  randomEmail,
-  randomCustomerInfo,
-  isoDate,
-} from '@/utils/testDataUtils';
+import { uniqueName, randomEmail, randomCustomerInfo, isoDate } from '@/utils/testDataUtils';
 
 test.describe('@unit testDataUtils', () => {
   test('uniqueName returns distinct values across many calls', () => {

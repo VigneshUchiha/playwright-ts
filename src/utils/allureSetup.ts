@@ -36,7 +36,11 @@ async function globalSetup(): Promise<void> {
     path.join(resultsDir, 'categories.json'),
     JSON.stringify(
       [
-        { name: 'Validation errors', matchedStatuses: ['failed'], messageRegex: '.*ValidationError.*' },
+        {
+          name: 'Validation errors',
+          matchedStatuses: ['failed'],
+          messageRegex: '.*ValidationError.*',
+        },
         { name: 'API errors', matchedStatuses: ['failed'], messageRegex: '.*ApiError.*' },
         { name: 'Timeouts', matchedStatuses: ['failed'], messageRegex: '.*Timeout.*' },
       ],

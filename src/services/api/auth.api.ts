@@ -34,7 +34,9 @@ export class AuthService extends BaseApiService {
     this.validator.register('token', loadSchema('token'));
   }
 
-  async createToken(creds: AuthRequest): Promise<TypedResponse<AuthOkResponse | AuthErrorResponse>> {
+  async createToken(
+    creds: AuthRequest,
+  ): Promise<TypedResponse<AuthOkResponse | AuthErrorResponse>> {
     return this.step('createToken', async () =>
       this.apiClient.post<AuthOkResponse | AuthErrorResponse>(API_ROUTES.AUTH, creds),
     );

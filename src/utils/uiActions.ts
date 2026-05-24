@@ -70,9 +70,12 @@ export class UIActions {
   }
 
   async expectCount(locator: Locator, expected: number, label?: string): Promise<void> {
-    await test.step(label ? `Expect ${label} count = ${expected}` : `Expect count = ${expected}`, async () => {
-      await expect(locator).toHaveCount(expected);
-    });
+    await test.step(
+      label ? `Expect ${label} count = ${expected}` : `Expect count = ${expected}`,
+      async () => {
+        await expect(locator).toHaveCount(expected);
+      },
+    );
   }
 
   // === Locator builders ===

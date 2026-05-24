@@ -68,7 +68,11 @@ export class BookingsService extends BaseApiService {
     );
   }
 
-  async updateBooking(id: number, payload: Booking, token: string): Promise<TypedResponse<Booking>> {
+  async updateBooking(
+    id: number,
+    payload: Booking,
+    token: string,
+  ): Promise<TypedResponse<Booking>> {
     return this.step(`update booking ${id}`, async () =>
       this.apiClient.withToken(token).put<Booking>(API_ROUTES.BOOKING_BY_ID(id), payload),
     );

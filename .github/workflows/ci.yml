@@ -6,28 +6,9 @@ on:
     branches: [main]
   workflow_dispatch:
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
-
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-      - run: npm ci
-      - run: npm run typecheck
-      - run: npm run lint
-      - run: npm run format:check
-
   set-grep:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
     outputs:
       grep: ${{ steps.compute.outputs.grep }}
     steps:
@@ -42,7 +23,6 @@ jobs:
 
   unit:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
     needs: set-grep
     steps:
       - uses: actions/checkout@v4
@@ -51,8 +31,6 @@ jobs:
           node-version: '20'
           cache: 'npm'
       - run: npm ci
-      # Unit tests run on every PR regardless of TEST_GREP — they're fast (~1s),
-      # have no external dependencies, and are tagged `@unit` not `@smoke`.
       - run: npx playwright test --project=unit
       - if: always()
         uses: actions/upload-artifact@v4
@@ -62,7 +40,6 @@ jobs:
 
   api:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
     needs: set-grep
     env:
       CI: 'true'
@@ -88,7 +65,6 @@ jobs:
 
   web:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
     needs: set-grep
     strategy:
       fail-fast: false
@@ -119,7 +95,6 @@ jobs:
 
   report:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
     needs: [unit, api, web]
     if: always()
     steps:

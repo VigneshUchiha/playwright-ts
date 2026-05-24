@@ -67,17 +67,16 @@ export const ENV = {
   DEFAULT_TIMEOUT:
     process.env.DEFAULT_TIMEOUT !== undefined
       ? Number(process.env.DEFAULT_TIMEOUT)
-      : json.timeouts?.default ?? 10000,
+      : (json.timeouts?.default ?? 10000),
   ACTION_TIMEOUT:
     process.env.ACTION_TIMEOUT !== undefined
       ? Number(process.env.ACTION_TIMEOUT)
-      : json.timeouts?.action ?? 8000,
+      : (json.timeouts?.action ?? 8000),
   NAVIGATION_TIMEOUT:
     process.env.NAVIGATION_TIMEOUT !== undefined
       ? Number(process.env.NAVIGATION_TIMEOUT)
-      : json.timeouts?.navigation ?? 15000,
-  STANDARD_USER:
-    process.env.STANDARD_USER ?? secrets.saucedemo?.standardUser ?? 'standard_user',
+      : (json.timeouts?.navigation ?? 15000),
+  STANDARD_USER: process.env.STANDARD_USER ?? secrets.saucedemo?.standardUser ?? 'standard_user',
   PASSWORD: process.env.PASSWORD ?? secrets.saucedemo?.password ?? 'secret_sauce',
   RB_USER: process.env.RB_USER ?? secrets.restfulBooker?.username ?? 'admin',
   RB_PASSWORD: process.env.RB_PASSWORD ?? secrets.restfulBooker?.password ?? 'password123',

@@ -7,11 +7,7 @@
     "project": "./tsconfig.json"
   },
   "plugins": ["@typescript-eslint"],
-  "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "prettier"
-  ],
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier"],
   "rules": {
     "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
     "@typescript-eslint/explicit-function-return-type": "off",
@@ -26,7 +22,32 @@
       "rules": {
         "playwright/no-wait-for-timeout": "error",
         "playwright/no-networkidle": "error",
-        "playwright/expect-expect": ["warn", { "assertFunctionNames": ["verifyTokenIssued", "verifyBadCredentials", "verifyPingOk", "verifyBookingId", "verifyBookingMatches", "verifyBookingListSchema", "verifyBookingIdInList", "verifyDeleted", "verifyOnLogin", "verifyLoginError", "verifyOnInventory", "verifyCartBadge", "verifyOnCart", "verifyItem", "verifyOnInfo", "verifyValidationError", "verifyOnOverview", "verifyOrderComplete", "verifyOnPage"] }]
+        "playwright/expect-expect": [
+          "warn",
+          {
+            "assertFunctionNames": [
+              "verifyTokenIssued",
+              "verifyBadCredentials",
+              "verifyPingOk",
+              "verifyBookingId",
+              "verifyBookingMatches",
+              "verifyBookingListSchema",
+              "verifyBookingIdInList",
+              "verifyDeleted",
+              "verifyOnLogin",
+              "verifyLoginError",
+              "verifyOnInventory",
+              "verifyCartBadge",
+              "verifyOnCart",
+              "verifyItem",
+              "verifyOnInfo",
+              "verifyValidationError",
+              "verifyOnOverview",
+              "verifyOrderComplete",
+              "verifyOnPage"
+            ]
+          }
+        ]
       }
     },
     {

@@ -16,10 +16,7 @@ export default defineConfig({
 
   globalSetup: require.resolve('./src/utils/allureSetup.ts'),
 
-  reporter: [
-    ['list'],
-    ['allure-playwright', { detail: false, suiteTitle: true }],
-  ],
+  reporter: [['list'], ['allure-playwright', { detail: false, suiteTitle: true }]],
 
   use: {
     actionTimeout: ENV.ACTION_TIMEOUT,

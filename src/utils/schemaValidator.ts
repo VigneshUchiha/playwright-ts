@@ -22,10 +22,7 @@ export class SchemaValidator {
     }
     const ok = validator(data);
     if (!ok) {
-      throw new ValidationError(
-        `Schema "${name}" validation failed`,
-        validator.errors ?? [],
-      );
+      throw new ValidationError(`Schema "${name}" validation failed`, validator.errors ?? []);
     }
   }
 }

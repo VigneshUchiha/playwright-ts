@@ -1,14 +1,20 @@
 import type { ErrorObject } from 'ajv';
 
 export class FrameworkError extends Error {
-  constructor(message: string, public readonly context?: Record<string, unknown>) {
+  constructor(
+    message: string,
+    public readonly context?: Record<string, unknown>,
+  ) {
     super(message);
     this.name = 'FrameworkError';
   }
 }
 
 export class ValidationError extends FrameworkError {
-  constructor(message: string, public readonly errors: ErrorObject[]) {
+  constructor(
+    message: string,
+    public readonly errors: ErrorObject[],
+  ) {
     super(message, { errors });
     this.name = 'ValidationError';
   }
