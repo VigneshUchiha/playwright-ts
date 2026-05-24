@@ -88,16 +88,18 @@ docs/
 
 ## Architecture
 
-### Six Playwright projects
+### Playwright projects
 
-| Project    | What it tests                                                        | Browser? |
-| ---------- | -------------------------------------------------------------------- | -------- |
-| `unit`     | Utility code (env loader, schema validator, logger, data generators) | none     |
-| `api`      | Restful-Booker                                                       | none     |
-| `chromium` | SauceDemo on Desktop Chrome                                          | yes      |
-| `firefox`  | SauceDemo on Desktop Firefox                                         | yes      |
-| `webkit`   | SauceDemo on Desktop Safari                                          | yes      |
-| `android`  | Sauce Labs Sample App — **Phase 2, not yet implemented**             | Appium   |
+| Project               | What it tests                                                                 | Browser? |
+| --------------------- | ----------------------------------------------------------------------------- | -------- |
+| `unit`                | Utility code (env loader, schema validator, logger, data generators)          | none     |
+| `api`                 | Restful-Booker                                                                | none     |
+| `chromium`            | SauceDemo on Desktop Chrome                                                   | yes      |
+| `firefox`             | SauceDemo on Desktop Firefox                                                  | yes      |
+| `webkit`              | SauceDemo on Desktop Safari                                                   | yes      |
+| `android` _(planned)_ | Sauce Labs Sample App — Phase 2, not registered in `playwright.config.ts` yet | Appium   |
+
+Five live projects plus an android Phase 2 placeholder.
 
 ### Core patterns
 

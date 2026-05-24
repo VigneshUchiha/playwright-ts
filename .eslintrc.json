@@ -41,7 +41,6 @@
               "verifyOnCart",
               "verifyItem",
               "verifyOnInfo",
-              "verifyValidationError",
               "verifyOnOverview",
               "verifyOrderComplete",
               "verifyOnPage"

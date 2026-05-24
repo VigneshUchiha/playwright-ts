@@ -18,7 +18,8 @@ test.describe('@regression @bookings Restful-Booker /booking CRUD', () => {
         });
         t = (tokenResponse.body as AuthOkResponse).token;
       }
-      await bookingsApi.deleteBooking(createdId, t);
+      const deleteResponse = await bookingsApi.deleteBooking(createdId, t);
+      await bookingsApi.verifyDeleted(deleteResponse);
       createdId = null;
       token = null;
     }

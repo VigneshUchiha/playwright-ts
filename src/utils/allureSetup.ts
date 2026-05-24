@@ -7,6 +7,8 @@ function sanitizeValue(value: string): string {
 }
 
 async function globalSetup(): Promise<void> {
+  process.stdout.write(`[playwright-ts] Running with environment: ${ACTIVE_ENV}\n`);
+
   const resultsDir = path.resolve(process.cwd(), 'allure-results');
   fs.mkdirSync(resultsDir, { recursive: true });
 

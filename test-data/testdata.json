@@ -3,8 +3,7 @@
     {
       "TC_ID": "TC_WEB_AUTH_001",
       "user": "standard_user",
-      "password": "secret_sauce",
-      "expectedURL": "/inventory.html"
+      "password": "secret_sauce"
     },
     {
       "TC_ID": "TC_WEB_AUTH_002",

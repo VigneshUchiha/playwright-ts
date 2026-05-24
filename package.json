@@ -1,7 +1,7 @@
 {
   "name": "playwright-ts",
   "version": "0.1.0",
-  "private": false,
+  "private": true,
   "description": "Playwright + TypeScript test automation framework — Web (SauceDemo) + API (Restful-Booker), with Page Object Model, custom action wrappers, fixtures, multi-env config, and Allure reporting.",
   "license": "MIT",
   "engines": {

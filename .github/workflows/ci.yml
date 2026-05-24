@@ -6,9 +6,28 @@ on:
     branches: [main]
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm run format:check
+
   set-grep:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     outputs:
       grep: ${{ steps.compute.outputs.grep }}
     steps:
@@ -23,6 +42,7 @@ jobs:
 
   unit:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     needs: set-grep
     steps:
       - uses: actions/checkout@v4
@@ -42,6 +62,7 @@ jobs:
 
   api:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     needs: set-grep
     env:
       CI: 'true'
@@ -67,6 +88,7 @@ jobs:
 
   web:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     needs: set-grep
     strategy:
       fail-fast: false
@@ -97,6 +119,7 @@ jobs:
 
   report:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     needs: [unit, api, web]
     if: always()
     steps:

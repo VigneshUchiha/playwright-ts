@@ -1,3 +1,4 @@
+CLAUDE.md
 node_modules/
 allure-results/
 allure-report/
@@ -12,3 +13,6 @@ config/secrets/secrets.json
 .vscode/settings.json
 coverage/
 .playwright-mcp/
+.agents/
+skills-lock.json
+docs/superpowers/plans/

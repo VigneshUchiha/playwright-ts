@@ -1,6 +1,6 @@
 # Playwright + TypeScript Minimal Clone — Design Spec
 
-**Author:** Sandesha Thandra
+**Author:** Vignesh Ponna
 **Date:** 2026-05-24
 **Status:** Approved for implementation planning
 

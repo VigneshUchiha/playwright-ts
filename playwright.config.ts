@@ -1,7 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
-import { ENV, ACTIVE_ENV } from '@config/env.config';
-
-process.stdout.write(`[playwright-ts] Running with environment: ${ACTIVE_ENV}\n`);
+import { ENV } from '@config/env.config';
 
 export default defineConfig({
   testDir: './tests',
